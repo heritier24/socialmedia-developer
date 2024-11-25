@@ -10,12 +10,12 @@
         <nav class="iq-sidebar-menu">
           <ul id="iq-sidebar-toggle" class="iq-menu">
             <li class="active">
-              <a href="/" class=" ">
+              <a href="#" class=" " @click="getNewsfeed()">
                 <i class="las la-newspaper"></i><span>Newsfeed</span>
               </a>
             </li>
             <li class="">
-              <a href="/profile" class=" ">
+              <a href="#" class=" " @click="getProfile()">
                 <i class="las la-user"></i><span>Profile</span>
               </a>
             </li>
@@ -1145,9 +1145,27 @@
 </template>
 <script>
 import NewsFeed from '../components/NewsFeed.vue'
+import Profile from '../components/ProfileItem.vue'
 export default {
   components: {
-    NewsFeed
+    NewsFeed,
+    Profile
+  },
+  data () {
+    return {
+      newsFeediv: true,
+      profileDiv: false
+    }
+  },
+  methods: {
+    getNewsfeed () {
+      this.newsFeediv = true
+      this.profileDiv = false
+    },
+    getProfile () {
+      this.newsFeediv = false
+      this.profileDiv = true
+    }
   }
 }
 </script>
